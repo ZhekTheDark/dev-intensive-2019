@@ -9,6 +9,7 @@ import ru.skillbranch.devintensive.extensions.format
 import ru.skillbranch.devintensive.extensions.toUserView
 import ru.skillbranch.devintensive.models.*
 import java.util.*
+import ru.skillbranch.devintensive.utils.*
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -115,6 +116,17 @@ class ExampleUnitTest {
 
         println(txtMessage.formatMessage())
         println(imgMessage.formatMessage())
+    }
+
+    @Test
+    fun test_of_parseFullName(){
+        assertEquals(null to null, Utils.parseFullName(null))
+        assertEquals(null to null, Utils.parseFullName(""))
+        assertEquals(null to null, Utils.parseFullName(" "))
+        assertEquals("John" to null, Utils.parseFullName("John"))
+        assertEquals(null to null, Utils.parseFullName("    "))
+        assertEquals("John" to null, Utils.parseFullName("John "))
+        assertEquals("John" to null, Utils.parseFullName("  John "))
     }
 }
 
