@@ -21,6 +21,6 @@ object Utils {
     }
 
     fun toInitials(firstName: String?, lastName: String?): String? {
-        return firstName!![0] + ". " + lastName!![0] + "."
+        return firstName!![0].toUpperCase() + ". " + lastName!![0].toUpperCase() + "."
     }
 }
