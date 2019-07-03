@@ -3,7 +3,7 @@ package ru.skillbranch.devintensive
 import org.junit.Test
 
 import org.junit.Assert.*
-import ru.skillbranch.devintensive.extensions.TimeUnit
+import ru.skillbranch.devintensive.extensions.TimeUnits
 import ru.skillbranch.devintensive.extensions.add
 import ru.skillbranch.devintensive.extensions.format
 import ru.skillbranch.devintensive.extensions.toUserView
@@ -53,8 +53,8 @@ class ExampleUnitTest {
     @Test
     fun test_copy() {
         val user = User.makeUser("John Wick")
-        val user2 = user.copy(lastVisit = Date().add(-2, TimeUnit.SECOND))
-        val user3 = user.copy(lastName = "Cena", lastVisit = Date().add(2, TimeUnit.HOUR))
+        val user2 = user.copy(lastVisit = Date().add(-2, TimeUnits.SECOND))
+        val user3 = user.copy(lastName = "Cena", lastVisit = Date().add(2, TimeUnits.HOUR))
 
         println("""
             ${user.lastVisit?.format()}
