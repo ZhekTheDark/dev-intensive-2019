@@ -6,10 +6,11 @@ import org.junit.Assert.*
 import ru.skillbranch.devintensive.extensions.TimeUnits
 import ru.skillbranch.devintensive.extensions.add
 import ru.skillbranch.devintensive.extensions.format
-import ru.skillbranch.devintensive.extensions.toUserView
 import ru.skillbranch.devintensive.models.*
-import java.util.*
 import ru.skillbranch.devintensive.utils.*
+
+import java.util.*
+
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -65,7 +66,7 @@ class ExampleUnitTest {
 
     @Test
     fun test_dataq_maping() {
-        val user0 = User.makeUser(null)
+        /*val user0 = User.makeUser(null)
         println(user0)
         val userView0 = user0.toUserView()
         userView0.printMe()
@@ -105,7 +106,9 @@ class ExampleUnitTest {
         val userView5 = user5.toUserView()
         userView5.printMe()
         println()
-        println() // Евгений null
+        println() // Евгений null*/
+
+        println("${Utils.parseFullName("John Doe")}")
     }
 
     @Test

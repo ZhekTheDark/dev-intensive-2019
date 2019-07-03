@@ -15,12 +15,16 @@ object Utils {
             Pair(firstName, lastName)
         }*/
 
-            //Удаляем пробелы в начале и в конце
+        //Удаляем пробелы в начале и в конце
 
-        val creds: List<String>? = fullName?.split(" ")
+        val fullNameTrimmed = fullName?.trimStart()?.trimEnd()
 
-        val firstName = creds?.getOrNull(0)
-        val lastName = creds?.getOrNull(1)
+        if (fullNameTrimmed == "") return null to null
+
+        val parts: List<String>? = fullNameTrimmed?.split(" ")
+
+        val firstName = parts?.getOrNull(0)
+        val lastName = parts?.getOrNull(1)
 
         return firstName to lastName
 
