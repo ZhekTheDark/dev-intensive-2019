@@ -131,5 +131,14 @@ class ExampleUnitTest {
         assertEquals("John" to null, Utils.parseFullName("John "))
         assertEquals("John" to null, Utils.parseFullName("  John "))
     }
+
+    @Test
+    fun test_of_toInitials() {
+        assertEquals("JD",  Utils.toInitials("john" ,"doe") )
+        assertEquals("J",  Utils.toInitials("John", null) )
+        assertEquals("D",  Utils.toInitials(null, "doe") )
+        assertEquals(null,  Utils.toInitials(null, null) )
+        assertEquals(null,  Utils.toInitials(" ", "") )
+    }
 }
 
