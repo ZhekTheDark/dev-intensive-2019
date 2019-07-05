@@ -15,7 +15,6 @@ object Utils {
     }
 
     fun transliteration(payload: String, divider: String = " "): String {
-        val payloadToLower = payload.toLowerCase()
         var res = ""
 
         for (element in payload) {
