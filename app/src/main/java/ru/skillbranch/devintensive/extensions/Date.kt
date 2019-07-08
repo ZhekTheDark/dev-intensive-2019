@@ -27,7 +27,7 @@ fun Date.add(value: Int, units: TimeUnits = TimeUnits.SECOND): Date {
     return this
 }
 
-fun Date.humanizeDiff(date: Date = Date()):String {
+/*fun Date.humanizeDiff(date: Date = Date()):String {
     val diff = ((date.time - time) / 1000)
 
     return if (diff <= 0){
@@ -55,16 +55,75 @@ fun Date.humanizeDiff(date: Date = Date()):String {
             else -> "более года назад"
         }
     }
+}*/
+
+fun Date.humanizeDiff(date: Date = Date()):String {
+    val diff = ((date.time - time) / 1000)
+
+    return if (diff <= 0){
+        when (diff) {
+            in (-1)..0 -> "только что"
+            in (-45)..(-2) -> "через несколько секунд"
+            in (-75)..(-46) -> "через минуту"
+            in (-45 * 60)..(-76) -> "через ${TimeUnits.MINUTE.plural((diff.absoluteValue / 60).toInt())}"
+            in (-75 * 60)..(-46 * 60)  -> "через час"
+            in (-22 * 60 * 60)..(-76 * 60) -> "через ${TimeUnits.HOUR.plural((diff.absoluteValue / 60 / 60).toInt())}"
+            in (-26 * 60 * 60)..(-23 * 60 * 60) -> "через день"
+            in (-360 * 60 * 60 * 24)..(-27 * 60 * 60) -> "через ${TimeUnits.DAY.plural((diff.absoluteValue / 60 / 60 / 24).toInt())}"
+            else -> "более чем через год"
+        }
+    } else {
+        when (diff) {
+            in 0..1 -> "только что"
+            in 2..45 -> "несколько секунд назад"
+            in 46..75 -> "минуту назад"
+            in 76..45 * 60 -> "${TimeUnits.MINUTE.plural((diff.absoluteValue / 60).toInt())} назад"
+            in 46 * 60..75 * 60 -> "час назад"
+            in 76 * 60..22 * 60 * 60 -> "${TimeUnits.HOUR.plural((diff.absoluteValue / 60 / 60).toInt())} назад"
+            in 23 * 60 * 60..26 * 60 * 60 -> "день назад"
+            in 27 * 60 * 60..360 * 60 * 60 * 24 -> "${TimeUnits.DAY.plural((diff.absoluteValue / 60 / 60 / 24).toInt())} назад"
+            else -> "более года назад"
+        }
+    }
 }
 
 enum class TimeUnits {
     SECOND,
     MINUTE,
     HOUR,
-    DAY
+    DAY;
+
+    fun plural(value: Int): String {
+        return when (this) {
+            SECOND -> when {
+                value % 10 == 1-> "$value секунду"
+                value % 10 in 2..4-> "$value секунды"
+                value % 100 in 5..20-> "$value секунд"
+                else -> "$value секунд"
+            }
+            MINUTE -> when {
+                value % 10 == 1-> "$value минуту"
+                value % 10 in 2..4-> "$value минуты"
+                value % 100 in 5..20-> "$value минут"
+                else -> "$value минут"
+            }
+            HOUR -> when {
+                value % 10 == 1-> "$value час"
+                value % 10 in 2..4-> "$value часа"
+                value % 100 in 5..20-> "$value часов"
+                else -> "$value часов"
+            }
+            DAY -> when {
+                value % 10 == 1-> "$value день"
+                value % 10 in 2..4-> "$value дня"
+                value % 100 in 5..20-> "$value дней"
+                else -> "$value дней"
+            }
+        }
+    }
 }
 
-enum class Plurals {
+/*enum class Plurals {
     ONE,
     FEW,
     MANY
@@ -94,4 +153,4 @@ fun displayDaysCorrect(value: Long) = when (value.asPlurals){
     Plurals.ONE -> "$value день"
     Plurals.FEW -> "$value дня"
     Plurals.MANY -> "$value дней"
-}
+}*/
