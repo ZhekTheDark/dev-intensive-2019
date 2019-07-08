@@ -3,10 +3,7 @@ package ru.skillbranch.devintensive
 import org.junit.Test
 
 import org.junit.Assert.*
-import ru.skillbranch.devintensive.extensions.TimeUnits
-import ru.skillbranch.devintensive.extensions.add
-import ru.skillbranch.devintensive.extensions.format
-import ru.skillbranch.devintensive.extensions.humanizeDiff
+import ru.skillbranch.devintensive.extensions.*
 import ru.skillbranch.devintensive.models.*
 import ru.skillbranch.devintensive.utils.*
 
@@ -153,6 +150,19 @@ class ExampleUnitTest {
         assertEquals("через 5 дней", Date().add(5, TimeUnits.DAY).humanizeDiff())
         assertEquals("через 148 дней", Date().add(148, TimeUnits.DAY).humanizeDiff())
         assertEquals("более чем через год", Date().add(400, TimeUnits.DAY).humanizeDiff())
+    }
+
+    @Test
+    fun test_of_stringTruncate() {
+        val user = "Евгений Бобруцков"
+        assertEquals("Евгений Бобру...", user.truncate())
+        assertEquals("Евгений Бобруцков", user.truncate(20))
+    }
+
+    @Test
+    fun test_of_stringStripHtml() {
+        assertEquals("Hello World!", "Hello       World!".stripHtml())
+        assertEquals("Hello World!", "Hello Wor<>ld!".stripHtml())
     }
 }
 
