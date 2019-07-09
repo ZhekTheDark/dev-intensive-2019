@@ -155,7 +155,7 @@ class ExampleUnitTest {
     @Test
     fun test_of_stringTruncate() {
         val user = "Евгений Бобруцков"
-        assertEquals("Евгений Бобру...", user.truncate())
+        assertEquals("Евгений Бобруцко...", user.truncate())
         assertEquals("Евгений Бобруцков", user.truncate(20))
     }
 
