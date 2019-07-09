@@ -5,9 +5,6 @@ fun String.truncate(max: Int = 16): String =
     else "${this.substring(0, max).trimEnd()}..."
 
 fun String.stripHtml(): String = this
-    /*.replace(Regex("<[^>]*>"), "")
+    .replace(Regex("<[^>]*>"), "")
     .replace(Regex("&amp;|&lt;|&gt;|&quot;|&apos;|&#\\d+;"), "")
-    .replace(Regex(" +"), " ")*/
-
-    .replace("<[^>]*>".toRegex(), "")
-    .replace("\\s+".toRegex(), " ")
+    .replace(Regex(" +"), " ")
