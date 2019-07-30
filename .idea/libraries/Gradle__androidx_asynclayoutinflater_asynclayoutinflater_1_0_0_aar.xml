@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.asynclayoutinflater:asynclayoutinflater:1.0.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9186dccecec92043868bd03ad9375116/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9186dccecec92043868bd03ad9375116/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/47bef3a7281be4c1f9a3037853ac0dea/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/47bef3a7281be4c1f9a3037853ac0dea/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
